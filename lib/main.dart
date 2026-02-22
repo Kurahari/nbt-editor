@@ -140,10 +140,11 @@ class _NbtEditorHomeState extends State<NbtEditorHome> {
           Expanded(
             child: rootTag == null
                 ? const Center(child: Text('Upload a file to begin.'))
-                // We pass a callback to trigger a UI refresh when a value is edited
-                : NbtTreeView(
-                    tag: rootTag!, 
-                    onTagEdited: () => setState(() {}),
+                : SingleChildScrollView(
+                    child: NbtTreeView(
+                      tag: rootTag!, 
+                      onTagEdited: () => setState(() {}),
+                    ),
                   ),
           ),
         ],
